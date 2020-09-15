@@ -54,6 +54,17 @@ flutter:
    - images/chef.jpg
    - images/d.jpg
    - images/piz.jpg
+   - images/bg.jpg
+   - images/fem.jpg
+   - images/man1.jpg
+   - images/sand.jpg
+   - images/donut.png
+   - images/fried-potatoes.png
+   - images/noodles.png
+   - images/salad.png
+   - images/coffee.png
+   - images/cake.png
+   - images/pie.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

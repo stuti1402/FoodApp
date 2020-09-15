@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_2_stuti/home.dart';
 
 class login extends StatelessWidget {
   // This widget is the root of your application.
@@ -126,7 +127,13 @@ class login extends StatelessWidget {
                 'Sign UP',
                 style: TextStyle(fontSize: 20),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=> home(),
+                  )
+                );
+              },
             ),
           ),
           ),
