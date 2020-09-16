@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class home extends StatelessWidget {
@@ -85,6 +87,7 @@ class home extends StatelessWidget {
                 child:Text("$txt\n⭐⭐⭐⭐⭐"),),
     ]),);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,9 +162,12 @@ class home extends StatelessWidget {
             card('fem','Martha Rogers','sand','Grilled Sandwiches'),
           ],),
     ),)
-);
+
+        );
+    }
   }
-}
+
+
 _buildListItem(String foodName, String imgPath,) {
   return Container(
       child: Column(
@@ -188,4 +194,5 @@ _buildListItem(String foodName, String imgPath,) {
                 ],
               ));
 }
+
 

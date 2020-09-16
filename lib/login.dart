@@ -1,9 +1,59 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_2_stuti/home.dart';
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
   // This widget is the root of your application.
+
   @override
+  _loginState createState()=>  _loginState();
+    // TODO: implement createState
+  }
+
+class _loginState extends State<login>{
+  bool autoValidate = false;
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  formField(String field, TextInputType ktype, TextEditingController ctrller,
+      bool obscT) {
+    return Container(
+      height:46,
+      width: 600,
+      margin: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+    child:Padding(
+    padding: const EdgeInsets.all(12),
+      child: TextFormField(
+        controller: ctrller,
+        validator: (value) => value.isEmpty ? '*Required' : null,
+        autovalidate: autoValidate,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          contentPadding:
+          EdgeInsets.only(left: 15, bottom: 11, right: 15),
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.5,
+            color: Colors.grey,
+            fontSize: 18,
+          ),
+          hintText: '$field',
+        ),
+        keyboardType: ktype,
+        obscureText: obscT,
+      ),),
+    );
+  }
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       body:Column(
@@ -19,7 +69,7 @@ class login extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
           child:Padding(
-            padding: const EdgeInsets.all(40.0),
+            padding: const EdgeInsets.all(30.0),
            child:Text('Sign Up Free Account',
               style:TextStyle(
                   fontWeight: FontWeight.bold,
@@ -30,93 +80,20 @@ class login extends StatelessWidget {
           ), ),
           ),
           Container(
-            height:50,
-            width: 600,
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
+            child: Column(
+              children: [
+                formField('Username', TextInputType.text, usernameController, false),
+                formField('Email', TextInputType.emailAddress, emailController, false),
+                formField('Password', TextInputType.visiblePassword, passwordController, true),
+                formField('Phone', TextInputType.phone, phoneController, false),
+              ],
             ),
-           child:Padding(
-          padding: const EdgeInsets.all(12),
-             child: Text(
-                "UserName",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize:20,color: Colors.grey,
-                    letterSpacing: 1.5,
-                fontWeight: FontWeight.bold),
-              ),
-            ),),
-          SizedBox(
-            height: 10.0,
           ),
-          Container(
-            height:50,
-            width: 600,
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
-            ),
-            child:Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(
-                "Email",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize:20,color: Colors.grey,
-                    letterSpacing: 1.5,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),),
-          SizedBox(
-            height: 10.0,
-          ),
-          Container(
-            height:50,
-            width: 600,
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
-            ),
-            child:Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(
-                "Password",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize:20,color: Colors.grey,
-                    letterSpacing: 1.5,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),),
-          SizedBox(
-            height: 10.0,
-          ),
-          Container(
-            height:50,
-            width: 600,
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
-            ),
-            child:Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                "Phone",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize:20,color: Colors.grey,
-                    letterSpacing: 1.5,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),),
-          SizedBox(
-            height: 10.0,
-          ),
+
           SizedBox(
             width: 400,
             child:Container(
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -127,7 +104,31 @@ class login extends StatelessWidget {
                 'Sign UP',
                 style: TextStyle(fontSize: 20),
               ),
-              onPressed: () {
+      onPressed: () {
+      if (usernameController.text.isEmpty) {
+      setState(() {
+      autoValidate = true;
+      });
+      return;
+      }
+      if (emailController.text.isEmpty) {
+      setState(() {
+      autoValidate = true;
+      });
+      return;
+      }
+      if (passwordController.text.isEmpty) {
+      setState(() {
+      autoValidate = true;
+      });
+      return;
+      }
+      if (phoneController.text.isEmpty) {
+      setState(() {
+      autoValidate = true;
+      });
+      return;
+      }
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context)=> home(),
