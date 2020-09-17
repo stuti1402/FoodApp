@@ -19,7 +19,7 @@ class _loginState extends State<login>{
   formField(String field, TextInputType ktype, TextEditingController ctrller,
       bool obscT) {
     return Container(
-      height:46,
+      height:44,
       width: 600,
       margin: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
       decoration: BoxDecoration(
@@ -59,7 +59,7 @@ class _loginState extends State<login>{
       body:Column(
         children:<Widget>[
          Padding(
-      padding: const EdgeInsets.only(bottom:25.0, top: 60),
+      padding: const EdgeInsets.only(bottom:25.0, top: 50),
         child:Image.asset(
           'images/foodlogo.png',
           height: 90,
@@ -93,7 +93,7 @@ class _loginState extends State<login>{
           SizedBox(
             width: 400,
             child:Container(
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),

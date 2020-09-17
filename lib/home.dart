@@ -21,12 +21,12 @@ class home extends StatelessWidget {
   }
   card(String Image,String text,  String img,String txt,)
   {
-    return Card( margin: EdgeInsets.symmetric(vertical:10,horizontal: 20.0,),
+    return Card( margin: EdgeInsets.symmetric(vertical:20),
         child: Column(
           children: [
             Container(
-              width: 300.0,
-              height:60,
+              width: 360.0,
+              height:75,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey,
                 width: 3),
@@ -39,24 +39,24 @@ class home extends StatelessWidget {
                     Row(
                       children: <Widget>[
                       Container(
-                        width: 40,
-                        height: 40,
+                        width: 50,
+                        height: 48,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.blueAccent,
                             image: DecorationImage(
                                 image: AssetImage('images/$Image.jpg',),
-                                fit: BoxFit.fill)
+                                fit: BoxFit.cover)
                         ),),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                       child:Text('$text',
                         style: TextStyle(color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500
                       ),),),
                   Padding(
-                    padding: const EdgeInsets.only(left: 38),
+                    padding: const EdgeInsets.only(left: 90),
                     child:Icon(
                           Icons.favorite,
                           color: Colors.red,
@@ -67,7 +67,7 @@ class home extends StatelessWidget {
                   ] ),),
             ),
             Container(
-          height:250,width: 300,
+          height:290,width: 360,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey,
             width:3),
@@ -78,14 +78,17 @@ class home extends StatelessWidget {
           ),
         ),
             Container(
-              width: 300.0,
-              height:50,
+              width: 360.0,
+              height:75,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey,
                     width: 3),
               ),
-                child:Text("$txt\n⭐⭐⭐⭐⭐"),),
-    ]),);
+                child:Padding(
+                  padding: const EdgeInsets.only(top:12,left: 8),
+              child:Text("$txt\n⭐⭐⭐⭐⭐",
+              style: TextStyle(fontSize: 16),),),
+            )]),);
   }
 
   @override
@@ -148,7 +151,7 @@ class home extends StatelessWidget {
                   bar(Colors.redAccent,'HOT-DOG'),
                   bar(Colors.indigo,'PASTRY'),
              ] ),),
-            Padding(padding: const EdgeInsets.only(left:20, top:10),
+            Padding(padding: const EdgeInsets.only(left:20, top:15,bottom: 10),
             child:Align(
               alignment: Alignment.topLeft,
             child:Text('Most Popular',
@@ -156,14 +159,13 @@ class home extends StatelessWidget {
                 fontWeight: FontWeight.bold, letterSpacing: 1.5,),
             ),),
             ),
-            card('chef','Smith Williams' ,'piz','Pizza Margherita',),
+            card('chef','Smith Williams' ,'p','Pizza Margherita',),
             card('fem','Martha Rogers','bg','A Special Treat'),
-            card('man1', 'Steve Robbins', 'd', 'Yummy Donut'),
+            card('man1', 'Steve Robbins', 'donut', 'Yummy Donuts'),
             card('fem','Martha Rogers','sand','Grilled Sandwiches'),
           ],),
     ),)
-
-        );
+    );
     }
   }
 
